@@ -5,7 +5,7 @@ setup(
     name='UtilsDB',
     version='0.0.1',
     description='Utility functions for SQL Server connections and queries',
-    url='git@github.com:volimcvijece/UtilsDB.git',
+    url='git@github.com:volimcvijece/UtilsDBNew.git',
     author='Tonko Caric',
     author_email='caric.tonko@gmail.com',
     license='unlicensed',
