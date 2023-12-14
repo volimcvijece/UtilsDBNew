@@ -22,7 +22,7 @@ class SSMSConnPyodbc(BaseDb):
         return conn
         
 
-    def disconnect(connection):
+    def disconnect(self, connection):
         connection.close()
 
     def run_query(self,connection, sqlQuery:str)-> None:

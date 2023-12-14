@@ -17,7 +17,7 @@ class SSMSConnPymssql(BaseDb):
         return conn 
 
 
-    def disconnect(connection):
+    def disconnect(self, connection):
         connection.close()
 
 
