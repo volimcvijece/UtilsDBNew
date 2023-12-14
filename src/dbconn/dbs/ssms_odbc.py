@@ -42,14 +42,14 @@ class SSMSConnPyodbc(BaseDb):
             return [], []
         #columns = [column[0] for column in cursor.description]
 
-        if len(rows)>0:
-            cols = list(rows[0].keys())
+        #if len(rows)>0:
+        #    cols = list(rows[0].keys())
         
         #WORKS for pyodbc but not for pymsql
         for i,_ in enumerate(result.description): #WORKS for pyodbc but not for pymsql
             cols.append(result.description[i][0]) #WORKS for pyodbc but not for pymsql
-        for row in cursor:
-            cols.append(row)
+        #for row in cursor:
+        #    cols.append(row)
         
 
         return rows, cols
