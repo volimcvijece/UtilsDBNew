@@ -2,8 +2,7 @@ import pyodbc
 from pandas import DataFrame
 from numpy import array
 
-import os
-from src.dbconn.dbs.dbs_base import BaseDb
+from dbconn.dbs.dbs_base import BaseDb
 
 
 
