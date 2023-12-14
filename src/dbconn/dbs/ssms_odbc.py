@@ -3,7 +3,7 @@ from pandas import DataFrame
 from numpy import array
 
 import os
-from src.dbconn.dbs.dbs_base import BaseDb
+from dbs_base import BaseDb
 
 
 
@@ -11,16 +11,7 @@ class SSMSConnPyodbc(BaseDb):
     
     def __init__(self):
         super().__init__("pyodbc")
-        self._conn_info = {
-            'user': os.getenv("snowflake_db_user"),
-            'password': os.getenv("snowflake_db_password"),
-            'account': os.getenv("snowflake_db_account"),
-            'database': os.getenv("snowflake_db_database") ,
-            #'warehouse': None ,
-            #'role': None
-            #'log_level': logging.WARNING    
-            }
-        self.connection = None
+        self.connection = None #TODO
 
 
     def connect(self,server:str, database:str) -> None:
