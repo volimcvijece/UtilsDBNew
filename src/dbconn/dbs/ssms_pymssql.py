@@ -3,7 +3,7 @@ import pymssql
 from pandas import DataFrame
 
 import os
-from dbs_base import BaseDb
+from src.dbconn.dbs.dbs_base import BaseDb
 
 
 

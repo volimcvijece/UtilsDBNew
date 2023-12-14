@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='UtilsDB',
-    version='0.0.4',
+    version='0.0.5',
     description='Utility functions for SQL Server connections and queries',
     url='git@github.com:volimcvijece/UtilsDBNew.git',
     author='Tonko Caric',

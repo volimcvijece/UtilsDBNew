@@ -3,7 +3,7 @@ from pandas import DataFrame
 from numpy import array
 
 import os
-from dbs_base import BaseDb
+from src.dbconn.dbs.dbs_base import BaseDb
 
 
 

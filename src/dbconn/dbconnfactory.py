@@ -1,4 +1,4 @@
-from dbconn.dbs import ssms_odbc, ssms_pymssql
+from src.dbconn.dbs import ssms_odbc, ssms_pymssql
 
 
 def choose_connection(dbs_type):
