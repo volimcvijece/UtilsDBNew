@@ -65,5 +65,13 @@ class SSMSConnPyodbc(BaseDb):
             #df = pd.DataFrame(rows, columns=cols)
             return df
 
+    def run_query_return_scalar(self, connection, sqlQuery:str):
+        rows, cols = self.run_query(connection, sqlQuery)
+        if len(rows)==0:
+            print(f'ERROR! Query returned empty table! Code: {sqlQuery}')
+        elif len(rows)>1:
+            print(f"ERROR! Query returned more then one row!")
+        else:
+            return cols
 
 
