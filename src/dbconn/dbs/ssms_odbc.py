@@ -72,6 +72,6 @@ class SSMSConnPyodbc(BaseDb):
         elif len(rows)>1:
             print(f"ERROR! Query returned more then one row!")
         else:
-            return cols
+            return rows
 
 
