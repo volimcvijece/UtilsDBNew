@@ -69,6 +69,28 @@ def get_column_info_whole_db(databasename):
     
     return query
 
+
+def get_column_info_whole_db_explicit_env(env_name,databasename):
+    #odluka - ne koristiti CHARACTER_MAXIMUM_LENGTH da uhvatim ako je nesto kropano! decimale... da? ali zato automatski za sve 
+    #decimal i float i int baciti descriptor o min i max! (i castati naravno)
+    #mozda da li neka is nullable kolona ima null iak one bi smjela by design
+
+    #TODO - In general, INFORMATION_SCHEMA views should be avoided in favor of the catalog views introduced in SQL Server 2005 (and augmented since then). Why? Because the catalog views continue being developed as new features are added to SQL Server, while the info_schema views have not
+    query = f"""
+    SELECT 
+    TABLE_CATALOG
+    , TABLE_SCHEMA, TABLE_NAME
+	,TABLE_SCHEMA+'.'+TABLE_NAME AS TABLENAMEFULL
+    ,COLUMN_NAME, IS_NULLABLE AS TARGET_IS_NULLABLE
+    , DATA_TYPE AS TARGET_DATA_TYPE, CHARACTER_MAXIMUM_LENGTH AS TARGET_MAX_CHAR, NUMERIC_SCALE AS TARGET_DECIMAL_SCALE
+    ,ORDINAL_POSITION
+    FROM {env_name}.{databasename}.INFORMATION_SCHEMA.COLUMNS
+    --FROM {databasename}.INFORMATION_SCHEMA.COLUMNS
+	WHERE TABLE_SCHEMA NOT IN ('ref','common');
+    """
+    
+    return query
+
 def get_column_info_whole_db_with_ref(databasename):
     #odluka - ne koristiti CHARACTER_MAXIMUM_LENGTH da uhvatim ako je nesto kropano! decimale... da? ali zato automatski za sve 
     #decimal i float i int baciti descriptor o min i max! (i castati naravno)

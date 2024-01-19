@@ -54,6 +54,21 @@ class SSMSConnPyodbc(BaseDb):
 
         return rows, cols
     
+    #TODO
+    #BUG
+    def insert_in_db(self, connection, query_string):
+        try:
+            #cursor = connection.cursor() 
+            #cursor.execute(query_string, row['CHECK_CODE'])
+            connection.commit()
+
+
+        #while row: 
+        #    print(row)
+        #    row = cursor.fetchone()
+        except Exception as e:
+            print("Couldnt insert the row, ", e)
+            
 
     def run_query_to_df(self,connection, sqlQuery:str):
         rows, cols = self.run_query(connection, sqlQuery)
