@@ -85,7 +85,6 @@ def get_column_info_whole_db_explicit_env(env_name,databasename):
     , DATA_TYPE AS TARGET_DATA_TYPE, CHARACTER_MAXIMUM_LENGTH AS TARGET_MAX_CHAR, NUMERIC_SCALE AS TARGET_DECIMAL_SCALE
     ,ORDINAL_POSITION
     FROM {env_name}.{databasename}.INFORMATION_SCHEMA.COLUMNS
-    --FROM {databasename}.INFORMATION_SCHEMA.COLUMNS
 	WHERE TABLE_SCHEMA NOT IN ('ref','common');
     """
     
